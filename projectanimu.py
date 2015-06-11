@@ -20,6 +20,10 @@ def main():
                 print("More than one result found for search term '" + argv[2] + "'. Please choose one.")
                 for i in range(len(list)):
                     print("[" + str(i) + "] " + list[i])
+            elif len(list) == 0:
+                print("No matches found")
+            else:
+                print("Found " + line) 
                     
                 
 
