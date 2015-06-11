@@ -1,2 +1,3 @@
-# ProjectAnimu
-Some python shit that will work one day.
+#Project PaD
+Welcome to PaD, also known as the "Personal animu Database".
+How may I serve you?
