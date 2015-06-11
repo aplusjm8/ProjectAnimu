@@ -10,23 +10,29 @@ def main():
     if len(argv) != 3:
         usage()
     elif argv[1] == "-s":
-        with open('animu.txt', 'r') as inF:
-            for line in inF:
-                if argv[2] in line:
-                    list.append(line)
-            print(list)
-            if len(list) >= 2:
-                os.system('cls' if os.name == 'nt' else 'clear')
-                print("More than one result found for search term '" + argv[2] + "'. Please choose one.")
-                for i in range(len(list)):
-                    print("[" + str(i) + "] " + list[i])
-            elif len(list) == 0:
-                print("No matches found")
-            else:
-                print("Found " + line) 
+        search()
+
+def search():
+    with open('animu.txt', 'r') as inF:
+        for line in inF:
+            if argv[2] in line:
+                list.append(line)
+                print(list)
+                if len(list) >= 2:
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    print("More than one result found for search term '" + argv[2] + "'. Please choose one.")
+                    for i in range(len(list)):
+                        end = list[i].find("||") - 1
+                        print("[" + str(i) + "] " + list[i][0:end])
+                elif len(list) == 0:
+                    print("No matches found")
+                else:
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    name = line.find("||") -1
+                    ep = line.find("||", name+2)
+                    status = line.find("||", ep+2)
+                    print(line[0:name] + "\n" + line[name+4:ep-1] + "\n" + line[ep+3:])
                     
                 
 
-print argv[2]
-os.system('cls' if os.name == 'nt' else 'clear')
 main()
