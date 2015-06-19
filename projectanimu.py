@@ -57,7 +57,7 @@ def editepisode():
                     print(line[0:name] + "\n" + line[name+4:ep-1] + "\n" + line[ep+3:] + "\n")
                     print("Would you like to edit this record?\n")
                     ans = raw_input("Edit? [Y/N]: ")
-                    if ans == "y":
+                    if ans.lower() == "y":
                         os.system('cls' if os.name == 'nt' else 'clear')
                         print("[1]" + line[0:name] + "\n" + "[2]" + line[name+4:ep-1] + "\n" + "[3]" + line[ep+3:] + "\n")
                         ans2 = raw_input("What would you like to edit, [1], [2] or [3]: ")
